@@ -1,7 +1,29 @@
+import {ChangeEvent, FormEvent, useState} from "react";
 
-function SearchForm() {
+interface Props{
+    city: string,
+    getWeatherData: Function
+}
+
+function SearchForm({city , getWeatherData} :Props) {
+
+    const [namestate, setNamestate] = useState<string>(city);
+   const cityNameChangeHandler = (e :ChangeEvent<HTMLInputElement>) => {
+       setNamestate(e.target.value)
+
+   }
+
+   const submitHandler = (e :FormEvent<HTMLFormElement>) => {
+       e.preventDefault();
+       getWeatherData(namestate);
+   }
     return (
-        <div></div>
+        <div>
+            <form onSubmit={submitHandler}>
+                <input type={"text"} name={"cityName"} className={"border rounded p-3"} onChange={cityNameChangeHandler} value={namestate} />
+                <input type={"submit"} className={"bg-primary px-6 py-3 ml-3 text-white rounded"} value={"search"}/>
+            </form>
+        </div>
     );
 }
 
