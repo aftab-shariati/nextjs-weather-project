@@ -42,7 +42,7 @@ function Weather({city}:props) {
     return (
         <div className={"bg-white shadow mt-4 rounded-2xl p-8 py-16"}>
             <SearchForm city={city} getWeatherData = {getWeatherData}/>
-            <WeatherInfo/>
+            <WeatherInfo weather ={weatherState} />
             <ForecastList/>
         </div>
     );
