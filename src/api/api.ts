@@ -9,8 +9,8 @@ interface WeatherProps{
 }
 
 interface ForecastProps{
-    lat :string,
-    lon :string
+    lat :number,
+    lon :number
 }
 
 

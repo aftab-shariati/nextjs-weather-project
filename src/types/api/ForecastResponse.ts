@@ -56,7 +56,7 @@ interface Weather2 {
     icon: string
 }
 
-interface Daily {
+export interface Daily {
     dt: number
     sunrise: number
     sunset: number
