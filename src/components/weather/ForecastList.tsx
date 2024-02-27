@@ -5,11 +5,11 @@ interface Props{
 }
 
 function ForecastList({forecast} : Props) {
-    const dailyForecast = forecast?.daily || []; // Default to an empty array if forecast.daily is null
+    // const dailyForecast = forecast?.daily || []; // Default to an empty array if forecast.daily is null
     return (
         <div className={"grid grid-cols-8"}>
             {
-                dailyForecast.map((item: Daily) =>{
+                forecast.daily.map((item: Daily) =>{
                  return <ForecastItem item={item}/>
                 })
             }

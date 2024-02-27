@@ -4,6 +4,7 @@ import ForecastList from "@/components/weather/ForecastList";
 import {useState} from "react";
 import {callForecastApi, callWeatherApi} from "@/api/api";
 import {ForecastResponse} from "@/types/api/ForecastResponse";
+import Image from "next/image";
 interface props{
     city:string
 }
@@ -43,14 +44,17 @@ function Weather({city}:props) {
 
 
     if(weatherState.city.length === 0){
-        getWeatherData(city)
+        getWeatherData(city);
     }
 
     return (
+        <div className={"flex flex-col items-center"}>
+            <Image src={'next.svg'} alt={"First Next JS Project"} width={96} height={54}/>
         <div className={"bg-white shadow mt-4 rounded-2xl p-8 py-16"}>
             <SearchForm city={city} getWeatherData = {getWeatherData}/>
             <WeatherInfo weather ={weatherState} />
-            <ForecastList forecast={forecastState}/>
+            {forecastState && <ForecastList forecast={forecastState}/>}
+        </div>
         </div>
     );
 }
